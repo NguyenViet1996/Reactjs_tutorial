@@ -1,0 +1,17 @@
+{
+    "data": [
+      {
+        "name": "Viet",
+        "age": 26,
+        "major": "developer",
+        "sologan": "try your best"
+      },
+      {
+        "name": "Hai",
+        "age": 25,
+        "major": "leadership",
+        "sologan": "code faster"
+      }
+    ]
+  }
+  
