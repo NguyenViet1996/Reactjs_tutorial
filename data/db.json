@@ -1,17 +1,16 @@
 {
-    "data": [
-      {
-        "name": "Viet",
-        "age": 26,
-        "major": "developer",
-        "sologan": "try your best"
-      },
-      {
-        "name": "Hai",
-        "age": 25,
-        "major": "leadership",
-        "sologan": "code faster"
-      }
-    ]
-  }
-  
+  "data": [
+    {
+      "name": "Viet",
+      "age": 26,
+      "major": "developer",
+      "project": "web shopping cart"
+    },
+    {
+      "name": "Hai",
+      "age": 25,
+      "major": "leadership",
+      "project": "web movie"
+    }
+  ]
+}
