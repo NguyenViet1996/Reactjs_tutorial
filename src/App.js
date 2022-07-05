@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [content, setContent] = useState("");
+  const [jobs, setJobs] = useState(() => {
+    const storageJobs = JSON.parse(localStorage.getItem("jobs"));
+    return storageJobs;
+  });
+
+  const handleSave = () => {
+    setJobs((prev) => {
+      const newJobs = [...prev, content];
+
+      // save data into localStorage
+      const saveJobs = JSON.stringify(newJobs);
+      localStorage.setItem("jobs", saveJobs);
+      return newJobs;
+    });
+    setContent("");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        style={{ margin: 5 }}
+        value={content}
+        onChange={(e) => {
+          setContent(e.target.value);
+        }}
+      />
+      <button onClick={handleSave}>Add</button>
+      <ul className="content">
+        {jobs.map((job, index) => (
+          <li key={index}>{job}</li>
+        ))}
+      </ul>
     </div>
   );
 }
