@@ -26,15 +26,21 @@ const Content = () => {
       .then((posts) => setPosts(posts));
   }, [type]);
 
-  const handleScroll = () => {
-    if (window.scrollY > 600) {
-      setBackTop(true);
-    } else {
-      setBackTop(false);
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 600) {
+        setBackTop(true);
+      } else {
+        setBackTop(false);
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   const scrollFunction = () => {
     window.scrollTo(0, 0);
