@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import CustomInput from "../components/CustomInput";
 import CustomSelect from "../components/CustomSelect";
 import CustomCheckbox from "../components/CustomCheckbox";
-import { advancedSchema } from "../schemas/index";
+import { loginSchema } from "../schemas/index";
 import "../scss/Login.scss";
 
 const onSubmit = async (values, actions) => {
@@ -15,7 +15,7 @@ const Login = () => {
     <div className="login-form">
       <Formik
         initialValues={{ username: "", jobType: "", acceptedTo: false }}
-        validationSchema={advancedSchema}
+        validationSchema={loginSchema}
         onSubmit={onSubmit}
       >
         {({ isSubmitting }) => (

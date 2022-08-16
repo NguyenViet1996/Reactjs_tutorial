@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { basicSchema } from "../schemas/index";
+import { signUpSchema } from "../schemas/index";
 import "../scss/SignUp.scss";
 
 const onSubmit = async (values, actions) => {
@@ -25,7 +25,7 @@ const SignUp = () => {
       password: "",
       confirmPassword: "",
     },
-    validationSchema: basicSchema,
+    validationSchema: signUpSchema,
     onSubmit,
   });
   console.log(errors);
