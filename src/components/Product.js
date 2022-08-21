@@ -3,11 +3,11 @@ import sniker from "../../src/assets/img/sniker.jpg";
 import sniker2 from "../../src/assets/img/sniker2.jpg";
 import sniker3 from "../../src/assets/img/skiker3.jpg";
 import sniker4 from "../../src/assets/img/sniker4.jpg";
-import 'react-image-lightbox/style.css';
 import Lightbox from "react-image-lightbox";
 import { useState } from "react";
 
 const Product = () => {
+  const [photoIndex,setPhotoIndex] =useState(sniker)
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -44,24 +44,26 @@ const Product = () => {
           <button className="buy">Chọn mua</button>
         </div>
       </div>
-      {isOpen && (
-        <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => this.setState({ isOpen: false })}
-          onMovePrevRequest={() =>
-            this.setState({
-              photoIndex: (photoIndex + images.length - 1) % images.length,
-            })
-          }
-          onMoveNextRequest={() =>
-            this.setState({
-              photoIndex: (photoIndex + 1) % images.length,
-            })
-          }
-        />
-      )}
+      <div>
+        {isOpen && (
+          <Lightbox
+            mainSrc={photoIndex}
+            // nextSrc={images[(photoIndex + 1) % images.length]}
+            // prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            // onCloseRequest={() => this.setState({ isOpen: false })}
+            // onMovePrevRequest={() =>
+            //   this.setState({
+            //     photoIndex: (photoIndex + images.length - 1) % images.length,
+            //   })
+            // }
+            // onMoveNextRequest={() =>
+            //   this.setState({
+            //     photoIndex: (photoIndex + 1) % images.length,
+            //   })
+            // }
+          />
+        )}
+      </div>
     </div>
   );
 };
